@@ -1,10 +1,20 @@
 console.log('Loading Lambda HTML');
+const express  = require("express");
+const ejs = require('ejs');
+const fs = require('fs');
+
+//const app = express();
+
+//app.set ("view engine", "ejs");
+//app.use(express.static(__dirname + '/views'));
+
 var fs = require('fs'),
 	path = require('path'), 
 	ejs = require('ejs');   
-	filePath = path.join(__dirname, '/test.html');
+	filePath = path.join(__dirname, '/index.ejs');
 
 exports.handler = function(event, context) {
+
 
 	fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
 		if (!err) {
